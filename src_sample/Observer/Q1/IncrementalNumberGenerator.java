@@ -1,1 +1,0 @@
-// IncrementalNumberGeneratorクラスを実装してください。
