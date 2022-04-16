@@ -23,6 +23,6 @@ public class BookShelf implements Iterable<Book> {
 
     @Override
     public Iterator<Book> iterator() {
-        return new BookShelfScanner(this);
+        return new BookShelfIterator(this);
     }
 }

@@ -3,11 +3,11 @@ package Iterator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class BookShelfScanner implements Iterator<Book> {
+public class BookShelfIterator implements Iterator<Book> {
     private BookShelf bookShelf;
     private int index;
 
-    public BookShelfScanner(BookShelf bookShelf) {
+    public BookShelfIterator(BookShelf bookShelf) {
         this.bookShelf = bookShelf;
         this.index = 0;
     }

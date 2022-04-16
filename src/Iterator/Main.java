@@ -14,9 +14,9 @@ public class Main {
         bookShelf.appendBook(new Book("Gulliver's Travels"));
         bookShelf.appendBook(new Book("Hamlet"));
 
-        Iterator<Book> bookShelfScanner = bookShelf.iterator();
-        while (bookShelfScanner.hasNext()) {
-            Book book = bookShelfScanner.next();
+        Iterator<Book> bookShelfIterator = bookShelf.iterator();
+        while (bookShelfIterator.hasNext()) {
+            Book book = bookShelfIterator.next();
             System.out.println(book.getName());
         }
         System.out.println();
