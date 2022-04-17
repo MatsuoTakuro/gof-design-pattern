@@ -3,14 +3,14 @@ package facade.pagemaker;
 import java.io.IOException;
 import java.io.Writer;
 
-public class HtmlWriter {
+class HtmlWriter {
   private Writer writer;
 
-  public HtmlWriter(Writer writer) {
+  HtmlWriter(Writer writer) {
     this.writer = writer;
   }
 
-  public void title(String title) throws IOException {
+  void title(String title) throws IOException {
     writer.write("<!DOCTYPE html>");
     writer.write("<html>");
     writer.write("<head>");
@@ -22,20 +22,20 @@ public class HtmlWriter {
     writer.write("\n");
   }
 
-  public void mailTo(String mailAddr, String username) throws IOException {
+  void mailTo(String mailAddr, String username) throws IOException {
     link("mail to:" + mailAddr, username);
   }
 
-  public void link(String href, String caption) throws IOException {
+  void link(String href, String caption) throws IOException {
     paragraph("<a href=\"" + href + "\">" + caption + "</a>");
   }
 
-  public void paragraph(String msg) throws IOException {
+  void paragraph(String msg) throws IOException {
     writer.write("<p>" + msg + "</p>");
     writer.write("\n");
   }
 
-  public void close() throws IOException {
+  void close() throws IOException {
     writer.write("</body>");
     writer.write("</html>");
     writer.write("\n");
