@@ -2,6 +2,8 @@ package strategy;
 
 import java.util.Random;
 
+import static strategy.Hand.handPatterns;
+
 public class ProbableStrategy implements Strategy {
     private Random random;
     private int previousHandValue = rockHandValue();
@@ -41,7 +43,7 @@ public class ProbableStrategy implements Strategy {
 
     private int getSumWith(int firstHandValue) {
         int sum = 0;
-        for (int secondHandValue = 0; secondHandValue < 3; secondHandValue++) {
+        for (int secondHandValue = 0; secondHandValue < patternHistory[firstHandValue].length; secondHandValue++) {
             sum += patternHistory[firstHandValue][secondHandValue];
         }
         return sum;

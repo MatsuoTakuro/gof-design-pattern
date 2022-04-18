@@ -11,6 +11,7 @@ public enum Hand {
     private static Hand[] hands = {
             ROCK, SCISSORS, PAPER
     };
+    public static int handPatterns = hands.length;
 
     private Hand(String name, int handValue) {
         this.name = name;

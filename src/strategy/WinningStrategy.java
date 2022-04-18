@@ -2,6 +2,8 @@ package strategy;
 
 import java.util.Random;
 
+import static strategy.Hand.handPatterns;
+
 public class WinningStrategy implements Strategy {
     private Random random;
     private boolean hasWon = false;
@@ -15,7 +17,7 @@ public class WinningStrategy implements Strategy {
     @Override
     public Hand nextHand() {
         if (!hasWon) {
-            nextHand = Hand.getHand(random.nextInt(3));
+            nextHand = Hand.getHand(random.nextInt(handPatterns));
             previousHand = nextHand;
             return nextHand;
         }
