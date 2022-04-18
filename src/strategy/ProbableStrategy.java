@@ -6,7 +6,7 @@ public class ProbableStrategy implements Strategy {
     private Random random;
     private int previousHandValue = rockHandValue();
     private int currentHandValue = rockHandValue();
-    private int[][] winningPatternHistory = {
+    private int[][] patternHistory = {
             // first hand: [0]=Rock
             {1, 1, 1}, // second hand: [0]=Rock, [1]=Scissors, [2]=Paper
 
@@ -27,9 +27,9 @@ public class ProbableStrategy implements Strategy {
         int max = getSumWith(currentHandValue);
         int bet = random.nextInt(max);
         int nextHandValue;
-        if (bet < winningPatternHistory[currentHandValue][rockHandValue()]) {
+        if (bet < patternHistory[currentHandValue][rockHandValue()]) {
             nextHandValue = rockHandValue();
-        } else if (bet < winningPatternHistory[currentHandValue][rockHandValue()] + winningPatternHistory[currentHandValue][scissorsHandValue()]) {
+        } else if (bet < patternHistory[currentHandValue][rockHandValue()] + patternHistory[currentHandValue][scissorsHandValue()]) {
             nextHandValue = scissorsHandValue();
         } else {
             nextHandValue = paperHandValue();
@@ -42,7 +42,7 @@ public class ProbableStrategy implements Strategy {
     private int getSumWith(int firstHandValue) {
         int sum = 0;
         for (int secondHandValue = 0; secondHandValue < 3; secondHandValue++) {
-            sum += winningPatternHistory[firstHandValue][secondHandValue];
+            sum += patternHistory[firstHandValue][secondHandValue];
         }
         return sum;
     }
@@ -50,10 +50,10 @@ public class ProbableStrategy implements Strategy {
     @Override
     public void study(boolean win) {
         if (win) {
-            winningPatternHistory[previousHandValue][currentHandValue]++;
+            patternHistory[previousHandValue][currentHandValue]++;
         } else {
-            winningPatternHistory[previousHandValue][(currentHandValue + 1) % 3]++;
-            winningPatternHistory[previousHandValue][(currentHandValue + 2) % 3]++;
+            patternHistory[previousHandValue][(currentHandValue + 1) % 3]++;
+            patternHistory[previousHandValue][(currentHandValue + 2) % 3]++;
         }
     }
 
