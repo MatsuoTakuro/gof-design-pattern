@@ -2,12 +2,12 @@ package Singleton;
 
 public class Main2 {
     public static void main(String[] args) {
-        Triple a1 = Triple.getInstance("ALPHA");
-        Triple b1 = Triple.getInstance("BETA");
-        Triple c1 = Triple.getInstance("GAMMA");
-        Triple a2 = Triple.getInstance("ALPHA");
-        Triple b2 = Triple.getInstance("BETA");
-        Triple c2 = Triple.getInstance("GAMMA");
+        Triple2 a1 = Triple2.getInstance("ALPHA");
+        Triple2 b1 = Triple2.getInstance("BETA");
+        Triple2 c1 = Triple2.getInstance("GAMMA");
+        Triple2 a2 = Triple2.getInstance("ALPHA");
+        Triple2 b2 = Triple2.getInstance("BETA");
+        Triple2 c2 = Triple2.getInstance("GAMMA");
 
         if (a1 == a2) {
             System.out.println("a1 == a2 (" + a1 + ")");
