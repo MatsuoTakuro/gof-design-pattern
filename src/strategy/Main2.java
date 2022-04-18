@@ -23,6 +23,7 @@ public class Main2 {
         List<String> sortedByDescWithLambda  = SortByDescWithLambda (copied);
         System.out.println(sortedByDescWithLambda);
 
+        System.out.println(copied);
         System.out.println(list);
     }
 
