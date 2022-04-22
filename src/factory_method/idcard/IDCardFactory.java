@@ -4,9 +4,11 @@ import factory_method.framework.Factory;
 import factory_method.framework.Product;
 
 public class IDCardFactory extends Factory {
+    private int serial = 100;
+
     @Override
-    protected Product createProduct(String owner) {
-        return new IDCard(owner);
+    protected synchronized Product createProduct(String owner) {
+        return new IDCard(owner, serial++);
     }
 
     @Override
