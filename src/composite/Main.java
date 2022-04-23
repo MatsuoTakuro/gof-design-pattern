@@ -23,10 +23,15 @@ public class Main {
         userDir.add(hanako);
         userDir.add(tomura);
         yuki.add(new File("diary.html", 100));
-        yuki.add(new File("Composite.java", 200));
+        File file = new File("Composite.java", 200);
+        yuki.add(file);
         hanako.add(new File("memo.tex", 300));
         tomura.add(new File("game.doc", 400));
         tomura.add(new File("junk.mail", 500));
         rootDir.printList();
+
+        System.out.println();
+        System.out.println("file = " + file.getFullName());
+        System.out.println("yuki = " + yuki.getFullName());
     }
 }
