@@ -11,7 +11,5 @@ public class Banner {
         System.out.println("(" + string + ")");
     }
 
-    public void showWithAster() {
-        System.out.println("*" + string + "*");
-    }
+    public void showWithAster() { System.out.println("*" + string + "*"); }
 }
