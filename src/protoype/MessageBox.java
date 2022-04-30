@@ -1,8 +1,8 @@
 package protoype;
 
-import protoype.framework.Product;
+import protoype.framework.ConcreteProduct;
 
-public class MessageBox implements Product {
+public class MessageBox extends ConcreteProduct {
     private char decoChar;
 
     public MessageBox(char decoChar) {
@@ -21,16 +21,5 @@ public class MessageBox implements Product {
             System.out.print(decoChar);
         }
         System.out.println();
-    }
-
-    @Override
-    public Product createCopy() {
-        Product p = null;
-        try {
-            p = (Product)clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
-        return p;
     }
 }
