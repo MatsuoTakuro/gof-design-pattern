@@ -8,18 +8,17 @@ public class Director {
     }
 
     public void construct() {
-        builder.makeTitle("Greeting");
-        builder.makeString("General greeting");
+        builder.makeTitle("Bye");
+        builder.makeString("Casual farewells");
         builder.makeItems(new String[]{
-                "How are you?",
-                "Hello.",
-                "Hi."
+                "See you.",
+                "Take care.",
+                "Bye."
         });
-        builder.makeString("Greetings according to time of day");
+        builder.makeString("Polite Farewells");
         builder.makeItems(new String[]{
-                "Good morning.",
-                "Good afternoon.",
-                "Good evening."
+                "It was nice to see you.",
+                "I'm looking forward to seeing you again.",
         });
         builder.close();
     }
