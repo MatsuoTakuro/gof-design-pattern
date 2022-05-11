@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 
-public class HTMLBuilder extends Builder {
+public class HTMLBuilder implements Builder {
     private final String dir = "/Users/user/training/java/gof-design-patterns/src/builder/";
     private String filename = "untitled.html";
     private final StringBuilder sb = new StringBuilder();
