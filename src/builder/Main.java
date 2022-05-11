@@ -9,27 +9,31 @@ public class Main {
             System.exit(0);
         }
 
-        if (args[0].equals("text")) {
-            TextBuilder textBuilder = new TextBuilder();
-            Director director = new Director(textBuilder);
-            director.construct();
-            String result = textBuilder.getTextResult();
-            System.out.println(result);
-        } else if (args[0].equals("html")) {
-            HTMLBuilder htmlBuilder = new HTMLBuilder();
-            Director director = new Director(htmlBuilder);
-            director.construct();
-            String filename = htmlBuilder.getHTMLResult();
-            System.out.println("html file: " + filename + " was created.");
-        } else if (args[0].equals("frame")) {
-            FrameBuilder frameBuilder = new FrameBuilder();
-            Director director = new Director(frameBuilder);
-            director.construct();
-            JFrame frame = frameBuilder.getFrameResult();
-            frame.setVisible(true);
-        } else {
-            usage();
-            System.exit(0);
+        switch (args[0]) {
+            case "text":
+                TextBuilder textBuilder = new TextBuilder();
+                Director textDirector = new Director(textBuilder);
+                textDirector.construct();
+                String result = textBuilder.getTextResult();
+                System.out.println(result);
+                break;
+            case "html":
+                HTMLBuilder htmlBuilder = new HTMLBuilder();
+                Director htmlDirector = new Director(htmlBuilder);
+                htmlDirector.construct();
+                String filename = htmlBuilder.getHTMLResult();
+                System.out.println("html file: " + filename + " was created.");
+                break;
+            case "frame":
+                FrameBuilder frameBuilder = new FrameBuilder();
+                Director frameDirector = new Director(frameBuilder);
+                frameDirector.construct();
+                JFrame frame = frameBuilder.getFrameResult();
+                frame.setVisible(true);
+                break;
+            default:
+                usage();
+                System.exit(0);
         }
     }
 
