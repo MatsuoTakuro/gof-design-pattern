@@ -15,7 +15,7 @@ public class DivTray extends Tray {
         sb.append(caption);
         sb.append("</b></p>\n");
         sb.append("<div class=\"TRAY\">");
-        for (Item item: tray) {
+        for (Item item: tray()) {
             sb.append(item.makeHTML());
         }
         sb.append("</div>\n");
