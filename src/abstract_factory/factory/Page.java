@@ -25,7 +25,7 @@ public abstract class Page {
 
     public void output(String filename) {
         try {
-            Files.writeString(Path.of(filePath(filename)), makeHTML(),
+            Files.writeString(filePath(filename), makeHTML(),
                     StandardOpenOption.CREATE,
                     StandardOpenOption.TRUNCATE_EXISTING,
                     StandardOpenOption.WRITE);
@@ -37,7 +37,7 @@ public abstract class Page {
 
     public abstract String makeHTML();
 
-    private String filePath(String filename) {
-        return Paths.get(String.valueOf(baseDir), filename).toString();
+    private Path filePath(String filename) {
+        return Paths.get(String.valueOf(baseDir), filename);
     }
 }
