@@ -1,6 +1,8 @@
 package state;
 
 public class NightState implements State {
+    private static final int startHour = 21;
+    private static final int endHour = 8;
     private static final NightState singleton = new NightState();
 
     private NightState() {}
@@ -12,7 +14,9 @@ public class NightState implements State {
 
     @Override
     public void doClock(Context context, int hour) {
-        if (9 <= hour && hour < 17) {
+        if (NoonState.isLunchHour(hour)) {
+            context.changeState(NoonState.getInstance());
+        } else if (!isNightHour(hour)) {
             context.changeState(DayState.getInstance());
         }
     }
@@ -35,5 +39,9 @@ public class NightState implements State {
     @Override
     public String toString() {
         return "[Night]";
+    }
+
+    public static boolean isNightHour(int hour) {
+        return hour < endHour || startHour <= hour;
     }
 }
