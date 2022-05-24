@@ -29,6 +29,7 @@ public class NoonState implements State {
     @Override
     public void doAlarm(Context context) {
         context.callSecurityCenter("An emergency alarm went off (during lunch).");
+        context.changeState(UrgentState.getInstance());
     }
 
     @Override

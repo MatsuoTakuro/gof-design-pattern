@@ -29,6 +29,7 @@ public class NightState implements State {
     @Override
     public void doAlarm(Context context) {
         context.callSecurityCenter("An emergency alarm went off (at night).");
+        context.changeState(UrgentState.getInstance());
     }
 
     @Override
