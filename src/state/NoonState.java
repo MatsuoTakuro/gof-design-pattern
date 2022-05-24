@@ -23,7 +23,7 @@ public class NoonState implements State {
 
     @Override
     public void doUse(Context context) {
-        context.recordLog("Emergency: A safe was used (during lunch).");
+        context.callSecurityCenter("Emergency: A safe was used (during lunch).");
     }
 
     @Override
@@ -33,7 +33,7 @@ public class NoonState implements State {
 
     @Override
     public void doPhone(Context context) {
-        context.callSecurityCenter("A normal call made (during lunch).");
+        context.recordLog("A normal call made (during lunch).");
     }
 
     @Override
