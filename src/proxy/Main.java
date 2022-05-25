@@ -2,7 +2,7 @@ package proxy;
 
 public class Main {
     public static void main(String[] args) {
-        Printable p = new PrinterProxy("Alice");
+        Printable p = new PrinterProxy("Alice", "proxy.Printer");
         System.out.println("My name is " + p.getPrinterName() + " now.");
         p.setPrinterName("Bob");
         System.out.println("My name is " + p.getPrinterName() + " now.");

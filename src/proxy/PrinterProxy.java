@@ -2,16 +2,18 @@ package proxy;
 
 public class PrinterProxy implements Printable {
     private String name;
-    private Printer real;
+    private Printable real;
+    private String className;
 
     public PrinterProxy() {
         this.name = "No name";
         this.real = null;
     }
 
-    public PrinterProxy(String name) {
+    public PrinterProxy(String name, String className) {
         this.name = name;
         this.real = null;
+        this.className = className;
     }
 
     @Override
@@ -35,7 +37,14 @@ public class PrinterProxy implements Printable {
 
     private synchronized void realize() {
         if (real == null) {
-            real = new Printer(name);
+            try {
+                real = (Printable) Class.forName(className).getDeclaredConstructor().newInstance();
+                real.setPrinterName(name);
+            } catch (ClassNotFoundException e) {
+                System.out.println("Class " + className + " is not found.");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
